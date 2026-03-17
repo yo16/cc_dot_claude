@@ -1,2 +1,2 @@
-# cc_agent
-Claude Codeのエージェント作成
+# cc_dot_claude
+Claude Codeのエージェント等のコードを管理するリポジトリ
