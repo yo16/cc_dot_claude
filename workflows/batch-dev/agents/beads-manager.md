@@ -11,8 +11,11 @@ model: inherit
 ## 役割
 - タスクのステータス管理（open → in_progress → done/failed）
 - タスクのnotes更新（実施内容の要約、retry_count、エラー内容の記録）
+- 依存関係の操作（追加・削除）
 - コーディング内容の要約作成
 - タスククローズ
+
+※ タスクの新規作成（仕様書からの分解）は `task-decomposer` スキルが担当する
 
 ## 制約
 - 実装コードを書かない（src/, tests/ 配下のファイルを編集しない）
@@ -35,7 +38,10 @@ bd update <id> --notes "..." # notes更新（1行で記述）
 bd update <id> --add-label <label>  # ラベル追加
 bd close <id>                # タスククローズ
 bd list                      # タスク一覧取得
-bd dep list <id> --json      # 依存関係一覧
+bd create "<title>" --body-file <file> --notes "..." --parent <id>  # 新タスク作成（descriptionはファイルから）
+bd dep add <blocked> <blocker>    # 依存関係追加
+bd dep remove <blocked> <blocker> # 依存関係削除
+bd dep list <id> --json           # 依存関係一覧
 ```
 
 ## タスクID規則

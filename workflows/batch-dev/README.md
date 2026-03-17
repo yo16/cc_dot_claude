@@ -4,9 +4,10 @@
 
 ## 概要
 
-1. 人間が仕様を決め、Beadsにタスクを登録する
-2. `/batch-start` を実行すると、オープンなタスクを依存関係順に自動で全件実行する
-3. 全タスク完了後、`dev` ブランチをGitHubへpushし、`dev → main` のPRを作成する
+1. 人間が仕様書（`docs/specification.md`）を書く
+2. `task-decomposer` スキルで仕様をBeadsタスクに分解・登録する
+3. `/batch-start` を実行すると、オープンなタスクを依存関係順に自動で全件実行する
+4. 全タスク完了後、`dev` ブランチをGitHubへpushし、`dev → main` のPRを作成する
 
 ## ブランチ戦略
 
