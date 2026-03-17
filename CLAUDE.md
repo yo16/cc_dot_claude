@@ -34,6 +34,12 @@ shared/                   ワークフロー横断の共有リソース
 - スキル定義: SKILL.md with YAML frontmatter（name, description）+ references/
 - 設定ファイル: JSON（permissions, hooks, enabledPlugins等）
 
+## Bashコマンドの実行ルール
+
+- `&&`, `;`, `|` 等で複数のコマンドをチェインして実行しないこと
+- 理由: `settings.json` の `permissions.allow` パターンマッチはコマンド先頭にマッチするため、`cd ... && bd list` のようなチェインは許可パターンに合致せず、毎回ユーザーに許可を求めてしまう
+- 複数のコマンドが必要な場合は、1つずつ個別に実行する
+
 ## 注意事項
 
 - このリポジトリ自体はアプリケーションコードを含まない（ワークフロー定義のみ）
