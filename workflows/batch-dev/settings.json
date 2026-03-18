@@ -29,10 +29,10 @@
       "Bash(npx tsc:*)",
       "Bash(npx playwright:*)",
       "Bash(npm ls:*)",
-      "Read(.claude/tmp/**)",
-      "Write(.claude/tmp/**)",
-      "Edit(.claude/tmp/**)",
-      "Bash(ls .claude/tmp:*)"
+      "Read(tmp/**)",
+      "Write(tmp/**)",
+      "Edit(tmp/**)",
+      "Bash(ls tmp:*)"
     ]
   },
   "hooks": {

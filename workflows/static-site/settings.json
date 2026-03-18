@@ -1,15 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git status)",
-      "Bash(git diff:*)",
-      "Bash(git branch:*)",
-      "Bash(git checkout:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git merge:*)",
-      "Bash(git log:*)",
-      "Bash(git stash:*)",
+      "Bash(git -C * status:*)",
+      "Bash(git -C * diff:*)",
+      "Bash(git -C * add:*)",
+      "Bash(git -C * branch:*)",
+      "Bash(git -C * checkout:*)",
+      "Bash(git -C * commit:*)",
+      "Bash(git -C * merge:*)",
+      "Bash(git -C * log:*)",
+      "Bash(git -C * stash:*)",
       "Bash(bd:*)",
       "Bash(bd update:*)",
       "Bash(mkdir:*)",
@@ -26,10 +26,10 @@
       "Bash(npx jest:*)",
       "Bash(npm ls:*)",
       "Bash(node .claude/skills:*)",
-      "Read(.claude/tmp/**)",
-      "Write(.claude/tmp/**)",
-      "Edit(.claude/tmp/**)",
-      "Bash(ls .claude/tmp:*)"
+      "Read(tmp/**)",
+      "Write(tmp/**)",
+      "Edit(tmp/**)",
+      "Bash(ls tmp:*)"
     ]
   },
   "hooks": {

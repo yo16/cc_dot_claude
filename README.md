@@ -35,6 +35,10 @@ shared/                ワークフロー横断の共有リソース
   settings.json  ← workflows/<name>/settings.json をコピー
 ```
 
+3. 対象プロジェクトの `.gitignore` に `tmp/` を追加する
+
+エージェントはコミットメッセージやPR本文などの一時ファイルをプロジェクトルートの `tmp/` ディレクトリに書き出します。git管理対象外にするため、`.gitignore` への追加が必要です。
+
 ## ワークフロー
 
 ### pr-gated

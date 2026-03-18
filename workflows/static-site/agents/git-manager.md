@@ -18,13 +18,14 @@ GitHub操作（push、PR作成）は一切行いません。
 
 ## 制約
 - 実装コードを書かない（src/, tests/ 配下のファイルを編集しない）
-- Write ツールは `.claude/tmp/` への一時ファイル作成のみに使用する
+- Write ツールは `tmp/` への一時ファイル作成のみに使用する
 - Edit ツールは使用しない
 - `gh` コマンドは使用しない
 - `git push` は行わない
 - force操作は行わない（force-push, reset --hard 等）
 - 複数のコマンドをまとめて実行しない
   - 権限設定のパターンマッチ（`Bash(git:*)`）にマッチしないため
+- `git` コマンドは必ず `git -C <repo>` で実行する
 
 ## ブランチ戦略
 - `main` ← `dev` ← `feature/t-xxx` の3階層
@@ -41,25 +42,25 @@ git checkout -b feature/t-xxx # featureブランチ作成
 - Co-Authored-By ヘッダーを付与
 
 ### 複数行コミットメッセージの扱い
-- `git commit -F <file>` を使用してファイルからメッセージを読み込む
+- `git -C <repo> commit -F <file>` を使用してファイルからメッセージを読み込む
 - 手順:
-  1. `.claude/tmp/commit-msg.md` にコミットメッセージを書き出す（Write ツール）
-  2. `git commit -F .claude/tmp/commit-msg.md` で実行
-  3. 実行後に一時ファイルを削除する（`rm .claude/tmp/commit-msg.md`）
+  1. `tmp/commit-msg.md` にコミットメッセージを書き出す（Write ツール）
+  2. `git -C <repo> commit -F tmp/commit-msg.md` で実行
+  3. 実行後に一時ファイルを削除する（`rm tmp/commit-msg.md`）
 
 ## feature → dev マージ
 ```bash
-git checkout dev              # devブランチに移動
-git merge feature/t-xxx       # 通常マージ（commit履歴を残す）
+git -C <repo> checkout dev              # devブランチに移動
+git -C <repo> merge feature/t-xxx       # 通常マージ（commit履歴を残す）
 ```
 - squashしない
 - featureブランチは削除しない（ロールバック用に残す）
 
 ## dev → main マージ（エピック完了時）
 ```bash
-git checkout main             # mainブランチに移動
-git merge dev                 # 通常マージ
-git checkout dev              # devブランチに戻る
+git -C <repo> checkout main             # mainブランチに移動
+git -C <repo> merge dev                 # 通常マージ
+git -C <repo> checkout dev              # devブランチに戻る
 ```
 
 ## BeadsIDとブランチの対応

@@ -43,13 +43,13 @@ node ${CLAUDE_SKILL_DIR}/scripts/generate-samples.js <params.json> <output-dir>
 
 ### 第1段階（10個から3個を選ぶ）
 1. 仕様書のデザイン方向性をもとに、10種類のパラメータセットを決定する
-2. JSONファイルとして `.claude/tmp/design-params-round1.json` に書き出す
+2. JSONファイルとして `tmp/design-params-round1.json` に書き出す
 3. スクリプトを実行して `docs/design-samples/round1/` に出力する
 4. ユーザーに `docs/design-samples/round1/index.html` をブラウザで開いてもらい、3個を選んでもらう
 
 ### 第2段階（最終1個を決める）
 1. 選ばれた3個をベースに、バリエーションを含む10種類のパラメータセットを決定する
-2. JSONファイルとして `.claude/tmp/design-params-round2.json` に書き出す
+2. JSONファイルとして `tmp/design-params-round2.json` に書き出す
 3. スクリプトを実行して `docs/design-samples/round2/` に出力する
 4. ユーザーに `docs/design-samples/round2/index.html` をブラウザで開いてもらい、最終1個を選んでもらう
 

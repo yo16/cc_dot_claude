@@ -29,8 +29,8 @@ model: inherit
 ## 複数行テキストの扱い
 - `--notes` など複数行が必要な場合は、改行を含めず1行で記述する
 - `--body-file` が使えるオプションの場合:
-  1. `.claude/tmp/` に一時ファイルを書き出す
-  2. `--body-file .claude/tmp/<file>.md` で実行
+  1. `tmp/` に一時ファイルを書き出す
+  2. `--body-file tmp/<file>.md` で実行
   3. 実行後に一時ファイルを削除する
 
 ## 主要コマンド

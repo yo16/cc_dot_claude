@@ -36,8 +36,8 @@ model: inherit
 ## 複数行テキストの扱い
 - `bd create` の `--description` に複数行テキストを渡す場合、**heredocを使わず `--body-file` を使う**
 - 手順:
-  1. `.claude/tmp/` ディレクトリに一時ファイルを書き出す（例: `.claude/tmp/desc.md`）
-  2. `bd create --body-file .claude/tmp/desc.md ...` で実行
+  1. `tmp/` ディレクトリに一時ファイルを書き出す（例: `tmp/desc.md`）
+  2. `bd create --body-file tmp/desc.md ...` で実行
   3. 実行後に一時ファイルを削除する
 - 理由: heredocによる複数行コマンドは権限設定のパターンマッチ（`Bash(bd:*)`）にマッチしないため
 - `--notes` など `--body-file` が使えないオプションの場合は、改行を含めず1行で記述する

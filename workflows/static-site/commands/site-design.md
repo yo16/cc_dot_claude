@@ -28,10 +28,10 @@
   - レイアウト（ヒーロー中央/左寄せ）
 
 #### サンプル生成
-- パラメータ配列をJSONファイルとして `.claude/tmp/design-params-round1.json` に書き出す
+- パラメータ配列をJSONファイルとして `tmp/design-params-round1.json` に書き出す
 - `design-sampler` スキルのスクリプトを実行する:
   ```bash
-  node .claude/skills/design-sampler/scripts/generate-samples.js .claude/tmp/design-params-round1.json docs/design-samples/round1
+  node .claude/skills/design-sampler/scripts/generate-samples.js tmp/design-params-round1.json docs/design-samples/round1
   ```
 
 #### ユーザーへの提示
@@ -45,10 +45,10 @@
 - 3個の特徴を組み合わせたもの、微調整したもの等を含め、10種類のバリエーションを作成する
 
 #### サンプル生成
-- パラメータ配列をJSONファイルとして `.claude/tmp/design-params-round2.json` に書き出す
+- パラメータ配列をJSONファイルとして `tmp/design-params-round2.json` に書き出す
 - `design-sampler` スキルのスクリプトを実行する:
   ```bash
-  node .claude/skills/design-sampler/scripts/generate-samples.js .claude/tmp/design-params-round2.json docs/design-samples/round2
+  node .claude/skills/design-sampler/scripts/generate-samples.js tmp/design-params-round2.json docs/design-samples/round2
   ```
 
 #### ユーザーへの提示
@@ -92,7 +92,7 @@
 ```
 
 ### 5. 一時ファイルの削除
-- `.claude/tmp/design-params-round1.json` を削除する
-- `.claude/tmp/design-params-round2.json` を削除する
+- `tmp/design-params-round1.json` を削除する
+- `tmp/design-params-round2.json` を削除する
 
 - 確定したら、次のステップ `/site-build` を案内する

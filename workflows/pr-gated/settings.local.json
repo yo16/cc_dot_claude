@@ -28,10 +28,10 @@
       "Bash(npx eslint:*)",
       "Bash(npx tsc:*)",
       "Bash(npm ls:*)",
-      "Read(.claude/tmp/**)",
-      "Write(.claude/tmp/**)",
-      "Edit(.claude/tmp/**)",
-      "Bash(ls .claude/tmp:*)"
+      "Read(tmp/**)",
+      "Write(tmp/**)",
+      "Edit(tmp/**)",
+      "Bash(ls tmp:*)"
     ]
   },
   "enabledMcpjsonServers": [

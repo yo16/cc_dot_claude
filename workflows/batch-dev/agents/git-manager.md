@@ -17,7 +17,7 @@ GitHub操作（push、PR作成）は担当しません。
 
 ## 制約
 - 実装コードを書かない（src/, tests/ 配下のファイルを編集しない）
-- Write ツールは `.claude/tmp/` への一時ファイル作成のみに使用する
+- Write ツールは `tmp/` への一時ファイル作成のみに使用する
 - Edit ツールは使用しない
 - `gh` コマンドは使用しない（GitHub操作はgithub-managerが担当）
 - `git push` は行わない（GitHub操作はgithub-managerが担当）
@@ -44,9 +44,9 @@ git checkout -b feature/t-xxx # featureブランチ作成
 ### 複数行コミットメッセージの扱い
 - `git commit -F <file>` を使用してファイルからメッセージを読み込む
 - 手順:
-  1. `.claude/tmp/commit-msg.md` にコミットメッセージを書き出す（Write ツール）
-  2. `git commit -F .claude/tmp/commit-msg.md` で実行
-  3. 実行後に一時ファイルを削除する（`rm .claude/tmp/commit-msg.md`）
+  1. `tmp/commit-msg.md` にコミットメッセージを書き出す（Write ツール）
+  2. `git commit -F tmp/commit-msg.md` で実行
+  3. 実行後に一時ファイルを削除する（`rm tmp/commit-msg.md`）
 - 理由: heredocによる複数行コマンドは権限設定のパターンマッチ（`Bash(git commit:*)`）にマッチしないため
 
 ## featureブランチのdevへのマージ
