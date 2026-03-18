@@ -45,7 +45,8 @@ main ← dev ← feature/t-xxx（タスクごと）
 | エージェント | 説明 |
 |------------|------|
 | `task-planner` | エピック→タスク分解、依存関係解析 |
-| `coder` | コーディング専門（Next.js静的サイト実装） |
+| `designer` | UI/UXデザイン専門（マークアップ・スタイリング・レスポンシブ・アニメーション） |
+| `coder` | コーディング専門（Next.js統合・TypeScript型定義・テスト作成） |
 | `tester` | テスト専門（表示確認・レスポンシブ・アクセシビリティ） |
 | `beads-manager` | Beadsタスク管理 |
 | `git-manager` | ローカルgit操作専門（push・PR なし） |
