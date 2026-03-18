@@ -15,10 +15,12 @@ model: inherit
 - エピック・タスクのクローズ
 
 ## タスク作成ルール
+- **作成前に必ず `bd list` で既存タスクを確認し、同名・類似タスクがないことを確認する**
 - タスクを作成する際は、`task-decomposer` スキルの `references/task-template.md` フォーマットに従う
 - descriptionには「実装内容」「対象箇所」「受け入れ条件」「テスト観点」の4セクションを含める
 - テスト観点がないタスクは作成しない
-- エピック（親タスク）は `--parent` なしで作成し、タスク（子）は `--parent <epic-id>` で作成する
+- **エピックは必ず `--type epic` を指定する**（指定しないとtaskとして作成される）
+- エピック（親タスク）は `--type epic --parent` なしで作成し、タスク（子）は `--parent <epic-id>` で作成する
 
 ## 制約
 - 実装コードを書かない（src/, tests/ 配下のファイルを編集しない）
@@ -42,7 +44,7 @@ bd update <id> --add-label <label>  # ラベル追加
 bd close <id>                # タスククローズ
 bd list                      # タスク一覧取得
 bd create "<title>" --body-file <file> --parent <id>  # 子タスク作成
-bd create "<title>" --body-file <file>                # エピック作成
+bd create "<title>" --body-file <file> --type epic    # エピック作成（--type epic 必須）
 bd dep add <blocked> <blocker>    # 依存関係追加
 bd dep remove <blocked> <blocker> # 依存関係削除
 bd dep list <id> --json           # 依存関係一覧
