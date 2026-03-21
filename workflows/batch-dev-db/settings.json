@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "WebSearch",
       "Bash(git status)",
       "Bash(git diff:*)",
       "Bash(git branch:*)",
@@ -13,11 +14,14 @@
       "Bash(git stash:*)",
       "Bash(gh pr:*)",
       "Bash(gh api:*)",
-      "Bash(bd:*)",
+      "Bash(bd :*)",
       "Bash(bd update:*)",
-      "Bash(mkdir:*)",
-      "Bash(rm:*)",
+      "Bash(mkdir :*)",
+      "Bash(cp :*)",
+      "Bash(rm :*)",
+      "Bash(npm -v)",
       "Bash(npm install:*)",
+      "Bash(npx create-next-app@latest:*)",
       "Bash(npm test:*)",
       "Bash(npm run lint:*)",
       "Bash(npm run build:*)",
@@ -37,6 +41,16 @@
     ]
   },
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/change-gate-hook.sh"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Edit|Write|NotebookEdit",
