@@ -26,18 +26,31 @@ model: inherit
 - .beads/ 配下のファイルを編集しない
 
 ## テスト実行
+以下のテストをすべて実行する。該当するテストファイルが存在しない場合でもコマンドは実行し、結果を報告する。
+
+### 実行順序
 ```bash
-npm test              # 全テスト実行
-npm run lint          # lint実行
-npx tsc --noEmit      # 型チェック
-npx playwright test   # E2Eテスト（UIテストが必要な場合）
+# 1. 単体テスト・結合テスト
+npm test
+
+# 2. lint・型チェック
+npm run lint
+npx tsc --noEmit
+
+# 3. E2Eテスト（Playwrightテストファイルが存在する場合は必ず実行）
+npx playwright test
 ```
 
-## E2E / UIテスト
-- UIコンポーネントやページの動作確認が必要な場合は、Playwrightを使用したE2Eテストを実行する
-- Beadsタスクのdescriptionに「E2Eテスト」「UIテスト」「ブラウザテスト」等の記載がある場合は必ず実行する
-- `npx playwright test` でプロジェクトに定義されたE2Eテストを実行する
+### E2Eテストの実行条件
+- `**/*.e2e.*` や `**/e2e/**` 等のPlaywrightテストファイルが存在する場合は**必ず実行する**
+- Playwrightテストファイルが存在しない場合は、実行をスキップし「E2Eテスト: 該当ファイルなし」と報告する
 - Playwright MCPサーバーが有効な場合は、ブラウザ操作による対話的な検証も可能
+
+### Supabaseローカル環境を使う結合テストの実行
+- DB操作を含むテストでは、Supabaseローカル環境（`supabase start`）を使った結合テストが含まれることがある
+- 結合テスト実行前に、Supabaseローカル環境が起動しているか確認する（`supabase status`）
+- 起動していない場合は `supabase start` を実行してから結合テストを実施する
+- テスト完了後、Supabaseローカル環境は起動したままにする（他のタスクでも使うため）
 
 ## DB操作テストの観点
 DB操作を含むテストの分析時は、以下の観点も考慮する:
